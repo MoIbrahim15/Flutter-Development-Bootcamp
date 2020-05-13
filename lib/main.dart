@@ -7,14 +7,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.teal,
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.red,
-                backgroundImage: AssetImage("images/logo.png"),
+                backgroundImage: AssetImage("images/logo.jpg"),
               ),
               Text(
                 'Mohamed',
@@ -25,14 +26,53 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                "Android Developer",
+                "Senior Android Developer",
                 style: TextStyle(
                     fontFamily: 'Source Sans Pro',
                     fontSize: 20,
-                    color: Colors.teal[100],
+                    color: Colors.teal.shade100,
                     letterSpacing: 2.5,
                     fontWeight: FontWeight.bold),
-              )
+              ),
+              SizedBox(
+                height: 20,
+                width: 150,
+                child: Divider(
+                  color: Colors.teal.shade100,
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      "+201014776617",
+                      style: TextStyle(
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 14,
+                        color: Colors.teal.shade900,
+                      ),
+                    )),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      "mohamed_ibrahim15@hotmail.com",
+                      style: TextStyle(
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 14,
+                        color: Colors.teal.shade900,
+                      ),
+                    )),
+              ),
             ],
           ),
         ),
