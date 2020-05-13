@@ -8,40 +8,31 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text("I Am Rich"),
-          backgroundColor: Colors.blueGrey[900],
-        ),
         body: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: <Widget>[
-              Container(
-                width: 100,
-                height: double.infinity,
-                color: Colors.white,
-                child: Text("Container 1"),
+              CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.red,
+                backgroundImage: AssetImage("images/logo.png"),
               ),
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.green,
-                    )
-                  ]),
-              Container(
-                width: 100,
-                height: double.infinity,
-                color: Colors.white,
-                child: Text("Container 3"),
+              Text(
+                'Mohamed',
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontSize: 40,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
+              Text(
+                "Android Developer",
+                style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    fontSize: 20,
+                    color: Colors.teal[100],
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold),
+              )
             ],
           ),
         ),
