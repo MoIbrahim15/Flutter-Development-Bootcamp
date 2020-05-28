@@ -1,62 +1,44 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(MyApp());
+
+void playSound(int soundID) {
+  final player = AudioCache();
+  player.play('note$soundID.wav');
+}
+
+Expanded buildKey({int soundID, Color color}) {
+  return Expanded(
+    child: FlatButton(
+      color: color,
+      onPressed: () {
+        playSound(soundID);
+      },
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          backgroundColor: Colors.red,
-          appBar: AppBar(
-            title: Text('Dicee'),
-            backgroundColor: Colors.red,
-          ),
-          body: DiceAPP()),
-    );
-  }
-}
-
-class DiceAPP extends StatefulWidget {
-  @override
-  _DiceAPPState createState() => _DiceAPPState();
-}
-
-class _DiceAPPState extends State<DiceAPP> {
-  int rightDiceNumber = 2;
-  int leftDiceNumber = 3;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                changeDices();
-              },
-              child: Image.asset('images/dice$leftDiceNumber.png'),
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                changeDices();
-              },
-              child: Image.asset('images/dice$rightDiceNumber.png'),
-            ),
-          )
-        ],
+        home: Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            buildKey(soundID: 1, color: Colors.red),
+            buildKey(soundID: 2, color: Colors.orange),
+            buildKey(soundID: 3, color: Colors.yellow),
+            buildKey(soundID: 4, color: Colors.green),
+            buildKey(soundID: 5, color: Colors.teal),
+            buildKey(soundID: 6, color: Colors.blue),
+            buildKey(soundID: 7, color: Colors.purple)
+          ],
+        ),
       ),
-    );
-  }
-
-  void changeDices() {
-    setState(() {
-      rightDiceNumber = Random().nextInt(6) + 1;
-      leftDiceNumber = Random().nextInt(6) + 1;
-    });
+    ));
   }
 }
